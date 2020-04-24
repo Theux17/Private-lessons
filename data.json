@@ -1,0 +1,44 @@
+{
+    "students": [
+        {
+            "id": 1,
+            "avatar_url": "https://images.unsplash.com/photo-1548690312-e3b507d8c110?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+            "name": "Andressa Silva",
+            "birth": "1990-05-25",
+            "email": "andressa_silva@gmail.com",
+            "educational_level": "9EF",
+            "workload": "8"
+        },
+        {
+            "id": 2,
+            "avatar_url": "https://pbs.twimg.com/media/EL88AGyXsAUKjnK?format=jpg&name=small",
+            "name": "Matheus Silva de Oliveira",
+            "birth": "2001-09-17",
+            "email": "oliveira.ms18@gmail.com",
+            "educational_level": "3EM",
+            "workload": "5"
+        }
+    ],
+    "teachers": [
+        {
+            "id": 1,
+            "avatar_url": "https://pbs.twimg.com/media/EL88AGyXsAUKjnK?format=jpg&name=small",
+            "name": "Matheus Silva de Oliveira",
+            "birth": 993945600000,
+            "educational_level": "Doutorado",
+            "class_location": "D",
+            "occupation_area": "Desenvolvedor Web Júnior",
+            "creat_at": 1587687849739
+        },
+        {
+            "id": 2,
+            "avatar_url": "https://images.unsplash.com/photo-1548690312-e3b507d8c110?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+            "name": "Catarina Silva",
+            "birth": 989625600000,
+            "educational_level": "Ensino Médio Completo",
+            "class_location": "D",
+            "occupation_area": "Educação física",
+            "creat_at": 1587707751848
+        }
+    ]
+}

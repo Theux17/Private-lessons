@@ -1,0 +1,69 @@
+
+<div class="item">
+    <div>Imagem Url</div>
+
+    <input type="url" name="avatar_url" placeholder="http://" value="{{teacher.avatar_url}}">
+</div>
+
+<div class="item">
+    <div>Nome Completo</div>
+    <input type="text" name="name" value="{{teacher.name}}">
+</div>
+
+<div class="item">
+    <div>Data de nascimento</div>
+        <input 
+            type="date" 
+            name="birth" 
+            value="{{ teacher.date }}"
+        >
+    </div>
+
+<div class="item">
+    <div>Grau de escolaridade</div>
+    <select name="educational_level">
+        <option name="medio" value="Ensino Médio Completo">Ensino Médio Completo</option>
+        <option name="superior" value="Ensino Superior Completo">Ensino Superior Completo</option>
+        <option name="doutorado" value="Doutorado">Doutorado</option>
+        <option name="mestrado" value="Mestrado">Mestrado</option>
+    </select>
+</div>
+
+<div class="item">
+    <div>Tipo de aula</div>
+    <span><input    
+            type="radio"    
+            name="class_location"   
+            value="P"   
+            {% if teacher.class_location == "P" %}
+                checked
+            {% endif %}
+        checked>Presencial
+    </span>
+    <span>
+        <input 
+            type="radio" 
+            name="class_location" 
+            value="D"
+            {% if teacher.class_location == "D" %}
+                checked
+            {% endif %}
+        >À distância
+    </span>
+</div>
+
+<div class="item">
+    <div>Área de atuação</div>
+    <input type="text" name="occupation_area" placeholder="Insira a área de atuação" value="{{teacher.occupation_area}}">
+
+</div>
+
+<div class="item">
+    <div>Data de cadastro na plataforma</div>
+    <div>
+        <span>Desde</span>
+        <span>{{teacher.creat_at}}</span>
+    </div>
+</div>
+
+
