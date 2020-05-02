@@ -1,6 +1,6 @@
 module.exports = {
     // Idade
-    age: function(timestamp){
+    age(timestamp){
         const today = new Date()
     
         const birthDate = new Date(timestamp)
@@ -16,7 +16,7 @@ module.exports = {
     
     },
 
-    educationalLevel: function(value){
+    educationalLevel(value){
         if (value == 'medio'){
             return 'Ensino Médio completo'
         } else if (value == 'superior'){
@@ -28,7 +28,7 @@ module.exports = {
         }
     },
     
-    date: function (timestamp){
+    date(timestamp){
         const date = new Date(timestamp)
         const year = `${date.getUTCFullYear()}`
         const month = `0${date.getUTCMonth() + 1}`.slice(-2)
@@ -44,7 +44,7 @@ module.exports = {
         
     },
 
-    grade: function(value) {
+    grade(value) {
         if (value == '5EF'){
             return '5° ano do ensino fundamental'
         } else if (value == '6EF'){
