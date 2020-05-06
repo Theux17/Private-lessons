@@ -1,5 +1,4 @@
 module.exports = {
-    // Idade
     age(timestamp){
         const today = new Date()
     
@@ -39,7 +38,8 @@ module.exports = {
             month,
             year,
             iso: `${year}-${month}-${day}`,
-            birthDay: `${day}/${month}`
+            birthDay: `${day}/${month}`,
+            format:  `${day}/${month}/${year}`
         }
         
     },
@@ -62,5 +62,11 @@ module.exports = {
         } else if (value == '3EM'){
             return '3° ano do ensino médio'
         }
+    },
+
+    classLocation(location){
+        if(location == "P") return "Presencial"
+
+        return "À distância"
     }
 }

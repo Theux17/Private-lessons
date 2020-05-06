@@ -15,7 +15,7 @@
         <input 
             type="date" 
             name="birth" 
-            value="{{ teacher.date }}"
+            value="{{ teacher.age }}"
         >
     </div>
 
@@ -34,8 +34,8 @@
     <span><input    
             type="radio"    
             name="class_location"   
-            value="P"   
-            {% if teacher.class_location == "P" %}
+            value="Presencial"   
+            {% if teacher.class_location == "Presencial" %}
                 checked
             {% endif %}
         checked>Presencial
@@ -44,8 +44,8 @@
         <input 
             type="radio" 
             name="class_location" 
-            value="D"
-            {% if teacher.class_location == "D" %}
+            value="Distancia"
+            {% if teacher.class_location == "À distância" %}
                 checked
             {% endif %}
         >À distância
@@ -62,7 +62,7 @@
     <div>Data de cadastro na plataforma</div>
     <div>
         <span>Desde</span>
-        <span>{{teacher.creat_at}}</span>
+        <span>{{teacher.created_at}}</span>
     </div>
 </div>
 

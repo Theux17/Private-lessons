@@ -1,53 +1,69 @@
-const { date, age, grade } = require('../../lib/utils')
-
+const { date, age } = require('../../lib/utils')
+const Student = require('../models/Students')
 
 module.exports = {
-    index(req, res){
-        let students = []
+    index(req, res) {
+        Student.all(function (students) {
 
-        data.students.forEach(function(student, index){
-            students.push({
-                ...student,
-                grade: grade(data.students[index].educational_level)
-            })
+            return res.render("students/index", { students })
+        
         })
-
-        return
     },
 
-    create(req, res){
-        return
+    create(req, res) {
+        return res.render("students/create")
     },
 
-    post(req, res){
+    post(req, res) {
         const keys = Object.keys(req.body)
 
-        for(key of keys){
-            if(req.body[key] == ""){
+        for (key of keys) {
+            if (req.body[key] == "") {
                 return res.send("Please, fill in all fields!")
-            }  
+            }
         }
-    
-        birth = Date.parse(req.body.birth)
 
-        return
-    
+        Student.create(req.body, function (student) {
+
+            return res.redirect(`/students/show/${student.id}`)
+
+        })
+
     },
 
-    show(req, res){
-        return 
+    show(req, res) {
+        Student.find(req.params.id, function (student) {
+            if (!student) return res.send("Student isnot defined!")
+
+            student.age = age(student.birth)
+            student.birthDay = date(student.birth).birthDay
+
+            return res.render("students/show", { student })
+        })
     },
 
-    edit(req, res){
-        return
+    edit(req, res) {
+        Student.find(req.params.id, function (student) {
+            if (!student) return res.send("Student isnot defined!")
+
+            student.age = date(student.birth).iso
+
+            return res.render("students/edit", { student })
+
+        })
     },
 
-    put(req, res){
-        return
+    put(req, res) {
+        Student.update(req.body, function () {
+            return res.redirect(`/students/show/${req.body.id}`)
+        })
+
     },
 
     delete(req, res) {
-        return
+        Student.delete(req.body.id, function () {
+            return res.redirect("/students")
+        })
     }
-    
+
 }

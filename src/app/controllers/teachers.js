@@ -1,15 +1,18 @@
-const { age, educationalLevel, date } = require('../../lib/utils')
+const {educationalLevel, date, classLocation, age } = require('../../lib/utils')
+const Teacher = require('../models/Teacher')
 const Intl = require('intl')
 
 
-
 module.exports = {
+
     index(req, res){
-        return
+        Teacher.all(function(teachers){
+            return res.render("teachers/index", {teachers})
+        })
     },
 
     create(req, res){
-        return
+        return res.render("teachers/create")
     },
 
     post(req, res){
@@ -20,26 +23,49 @@ module.exports = {
                 return res.send("Please, fill in all fields!")
             }  
         }
-    
-        const creat_at = Date.now()
-        birth = Date.parse(req.body.birth)
+        
+        Teacher.create(req.body, function(teacher){
+
+            return res.redirect(`/teachers/show/${teacher.id}`)
+
+        })
     
     },
 
     show(req, res){
-        return
+        Teacher.find(req.params.id, function(teacher){
+            if(!teacher) return res.send("Teacher isnot defined!")
+            
+            teacher.age = age(teacher.birth)
+            teacher.created_at = date(teacher.created_at).format
+
+            return res.render("teachers/show", {teacher})
+        })
     },
 
     edit(req, res){
-        return
+        Teacher.find(req.params.id, function(teacher){
+            if(!teacher) return res.send("Teacher isnot defined!")
+            
+            teacher.age = date(teacher.birth).iso
+            teacher.created_at = date(teacher.created_at).format
+
+            return res.render("teachers/edit", {teacher})
+
+        })
     },
 
     put(req, res){
-        return
+        Teacher.update(req.body, function(){
+            return res.redirect(`/teachers/show/${req.body.id}`)
+        })
+
     },
 
     delete(req, res){
-        return
+        Teacher.delete(req.body.id, function(){            
+            return res.redirect("/teachers")
+        })
     }
 
 }

@@ -29,7 +29,7 @@
 
             <div class="item">
                 <div>Tipo de aula</div>
-                <div>{{"Presencial" if teacher.class_location == "P" else "À distância"}}</div>
+                <div>{{"Presencial" if teacher.class_location == "Presencial" else "À distância"}}</div>
             </div>
 
             <div class="item">
@@ -41,7 +41,7 @@
                 <div>Data de cadastro na plataforma</div>
                 <div>
                     <span>Desde</span>
-                    <span>{{teacher.creat_at}}</span>
+                    <span>{{teacher.created_at}}</span>
                 </div>
             </div>
 
