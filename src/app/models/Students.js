@@ -4,7 +4,11 @@ const db = require('../../config/db')
 module.exports = {
 
     all(callback){
-        db.query(`SELECT * FROM students`, function(err, results){
+        db.query(` 
+        SELECT students. *, teachers.name AS teacher_name 
+        FROM  students
+        LEFT JOIN teachers ON (students.teacher_id = teachers.id) 
+        `, function(err, results){
             if (err) throw `Database Error! ${err}`
             
             callback(results.rows)
@@ -19,8 +23,9 @@ module.exports = {
             birth,
             email,
             educational_level,
-            workload
-        ) VALUES($1, $2, $3, $4, $5, $6)
+            workload,
+            teacher_id
+        ) VALUES($1, $2, $3, $4, $5, $6, $7)
         RETURNING id `
         
         const values = [
@@ -29,7 +34,8 @@ module.exports = {
             data.birth,
             data.email,
             grade(data.educational_level),
-            data.workload
+            data.workload,
+            data.teachers
         ]
 
         db.query(query, values, function(err, results) {
@@ -37,10 +43,22 @@ module.exports = {
 
             callback(results.rows[0])
         })
-    }, 
+    },
+    
+    teachersSelectedOptions(callback){
+        db.query(`SELECT name, id FROM teachers`, function(err, results){
+            if(err) throw `Database Error! ${err}`
+        
+            callback(results.rows)
+        })
+    },
 
     find(id, callback){
-        db.query(`SELECT * FROM  students WHERE id = $1 `, [id], function(err, results){
+        db.query(` 
+        SELECT students. *, teachers.name AS teacher_name 
+        FROM  students
+        LEFT JOIN teachers ON (students.teacher_id = teachers.id) 
+        WHERE students.id = $1 `, [id], function(err, results){
             if (err) throw `Database Error! ${err}`
 
             callback(results.rows[0])
@@ -55,8 +73,9 @@ module.exports = {
             birth=($3),
             email=($4),
             educational_level=($5),
-            workload=($6)        
-        WHERE id = ($7)
+            workload=($6),
+            teacher_id=($7)        
+        WHERE id = ($8)
         ` 
 
         const values = [
@@ -66,6 +85,7 @@ module.exports = {
             data.email,
             grade(data.educational_level),
             data.workload,
+            data.teachers,
             data.id
         ]
 

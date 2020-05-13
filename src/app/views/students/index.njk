@@ -2,13 +2,16 @@
 
 {% block content %}
     <div class="card table-container">
+
         <a class="button-register" href="students/create">Cadastro</a>
+
         <table width="100%">
             <thead>
                 <tr>
                     <th>Nome completo</th>
                     <th>Email</th>
                     <th>Ano escolar</th>
+                    <th>Professor</th>
                     <th>Ação</th>
                 </tr>    
             </thead>
@@ -17,10 +20,11 @@
                 <tr>
                     <td>
                         <span style= "background-image: url({{ student.avatar_url }}) "></span>
-                        <div class="name">{{ student.name }}</div>
+                        {{ student.name }}
                     </td>
                     <td>{{ student.email }}</td>
                     <td>{{ student.educational_level }}</td>
+                    <td>{{ student.teacher_name }}</td>
                     <td><a href="/students/show/{{ student.id }}">Ver</a></td>
                 </tr>
                 {% endfor %}

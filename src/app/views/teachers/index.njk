@@ -3,12 +3,29 @@
 {% block content %}
     <div class="card table-container">
 
-        <table width="100%">
+        <div class="header">
             <a class="button-register" href="teachers/create">Cadastro</a>
+
+            <form action="/teachers" method="get">
+                    <input 
+                        type="text" 
+                        name="filter" 
+                        placeholder="Nome ou Atendimento"
+                        value="{{ filter }}" 
+                    >
+
+                <button type="submit">Pesquisar</button>                
+            </form>
+
+        </div>
+
+
+        <table width="100%">
             <thead>
                 <tr>
                     <th>Nome completo</th>
                     <th>Acompanhamento</th>
+                    <th>Alunos</th>
                     <th>Ação</th>
                 </tr>    
             </thead>
@@ -20,6 +37,7 @@
                         <div class="name">{{ teacher.name }}</div>
                     </td>
                     <td>{{ teacher.occupation_area }}</td>
+                    <td>{{ teacher.total_students }}</td>
                     <td><a href="/teachers/show/{{ teacher.id }}">Ver</a></td>
                 </tr>
                 {% endfor %}

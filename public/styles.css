@@ -222,7 +222,7 @@ button[type="submit"],
 }
 
 td, th {
-    padding: 20px;
+    padding: 18px;
     border-bottom: 1px solid rgb(179, 171, 171);   
 
 }
@@ -230,16 +230,14 @@ td, th {
 tbody tr td:first-child {
     display: grid;
     grid-template-columns: 64px 1fr;
-    padding: 30px;
     align-items: center;
-    
 }
 
 tbody tr td:first-child span {
     background-position: center;
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     border: 2px solid white;
     border: 1px solid white;
@@ -255,7 +253,6 @@ thead tr th{
 }
 
 tbody tr td{
-    padding: 26px;
     color: #777;
     font-weight: bold;
     font-size: 12px;
@@ -267,7 +264,8 @@ table tbody tr:last-child td {
 }
 
 table tbody tr td a,
-.button-register {
+.button-register,
+.table-container .header button  {
     background-color: #5CACEE;
     padding: 5px 25px;
     color: #111;
@@ -283,3 +281,48 @@ a.button-register{
     font-weight: bold;
     text-transform: none;
 } 
+
+table tbody tr td a:hover,
+.button-register:hover,
+.table-container .header button:hover,
+a.button-register:hover,
+.table-container .header button[type="submit"]:hover {
+    color: #eee;
+}
+
+/* Filter */
+
+.table-container .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 20px;
+    align-items: center;
+    text-align: center;
+
+}
+
+.table-container .header a,
+.table-container .header button[type="submit"] {
+    margin: 0;
+    width: 70px;
+    text-align: center;
+}
+
+.table-container .header button[type="submit"]{
+    padding: 5px 10px;
+    width: 107px;
+}
+
+
+
+.table-container .header form {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    justify-self: right ;
+    gap: 10px;
+    align-items: center;
+}
+
+.table-container .header input {
+    border: 1px solid #777
+}
