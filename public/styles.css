@@ -317,12 +317,46 @@ a.button-register:hover,
 
 .table-container .header form {
     display: grid;
-    grid-template-columns: 180px 1fr;
-    justify-self: right ;
+    grid-template-columns: 200px 1fr;
+    justify-self: end;
     gap: 10px;
     align-items: center;
 }
 
 .table-container .header input {
-    border: 1px solid #777
+    border: 1px solid #777;
+    border-radius: 4px;
+}
+
+/* Pagination */
+
+.table-container {
+    display: grid;
+    grid-template: 35px 1fr 10px / 1fr;
+}
+
+.table-container .header {
+    align-self: start;
+    margin: 0;
+}
+
+.pagination {
+    align-self: end;
+    justify-self: center;
+}
+
+.pagination a,
+.pagination span {
+    background-color: #5CACEE;    
+    margin-right: 14px;
+    padding: 4px;
+    font-weight: bold;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #1C1C1C;
+}
+
+.pagination a:hover {
+    color: white;
+
 }
