@@ -7,20 +7,23 @@
     </section>
 
     <section class="details">
-        <form method="POST" action="/students?_method=PUT">
+        <form id="form-update" method="POST" action="/students?_method=PUT">
  
             <h3>Editar Detalhes</h3>
 
             {% include "students/fields.njk" %}
-            <button class="edit-button" type="submit">Enviar</button>
 
             <input type="hidden" name="id" value="{{ student.id }}">
         </form>
 
         <form id="form-delete" method="POST" action="/students?_method=DELETE">
             <input type="hidden" name="id" value="{{ student.id }}">
-            <button type="submit">Deletar</button>
         </form>
+
+        <div class="buttons">
+            <button class="button-delete" type="submit" form="form-delete">Deletar</button>
+            <button class="button" type="submit" form="form-update">Enviar</button>
+        </div>    
     </section>
 </div>
 

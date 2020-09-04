@@ -7,7 +7,7 @@
     </section>
 
     <section class="details">
-        <form method="POST" action="/teachers?_method=PUT">
+        <form id="form-update" method="POST" action="/teachers?_method=PUT">
  
             <h3>Editar Detalhes</h3>
 
@@ -19,8 +19,12 @@
 
         <form id="form-delete" method="POST" action="/teachers?_method=DELETE">
             <input type="hidden" name="id" value="{{ teacher.id }}">
-            <button type="submit">Deletar</button>
         </form>
+
+         <div class="buttons">
+            <button class="button-delete" type="submit" form="form-delete">Deletar</button>
+            <button class="button" type="submit" form="form-update">Enviar</button>
+        </div> 
     </section>
 </div>
     

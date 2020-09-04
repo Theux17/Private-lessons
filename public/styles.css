@@ -2,12 +2,18 @@
 :root {
     --color-rebeccapurple: rebeccapurple;
     --color-rocketseat: #7159c1;
+    --color-button: #5CACEE;
+    --color-button-dark: #1e8de9;
+    --color-title: #111;
+    --color-link: #1C1C1C;
 
 }
 
 *{  margin: 0;
     padding: 0;
     border: 0;    
+    box-sizing: border-box;
+    text-decoration: none;    
 }
 
 body {
@@ -16,11 +22,10 @@ body {
 }  
 
 header {
-    background-color:#5CACEE;
+    background-color: var(--color-button);
     text-align: center;
     width: 100%;
     padding: 32px;
-    box-sizing: border-box;
 }
 
 .links {
@@ -39,7 +44,7 @@ header {
 
 .links a.active{
     font-weight: bold;
-    color: #1C1C1C;
+    color: var(--color-link);
 
 }
 
@@ -47,7 +52,7 @@ header {
     content:"";
     width: 0;
     height: 2px;
-    background: #1C1C1C;
+    background: var(--color-link);
     position: absolute;
     left: 0;
     bottom: -4px;
@@ -92,7 +97,7 @@ header {
     text-transform: uppercase;
     letter-spacing: 1px;
     line-height: 26px;
-    color: #5CACEE;
+    color: var(--color-button);
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 15px;
@@ -119,7 +124,7 @@ header {
 
 
 .item div:last-child{
-    color: #111;
+    color: var(--color-title);
     font-weight: bold;
     font-size: 16px;
     line-height: 26px;
@@ -131,7 +136,7 @@ header {
     border-radius: 16px;
     display: inline-block;
     text-transform: uppercase;
-    color: #111;
+    color: var(--color-title);
     font-size: 12px;
     line-height: 22px;
     font-weight: bold;
@@ -141,8 +146,7 @@ header {
 /*=== FORM ===*/
 
 input, select {
-    box-sizing: border-box;
-    color: #111;
+    color: var(--color-title);
     font-weight: bold;
     font-size: 16px;
     line-height: 26px;
@@ -159,7 +163,7 @@ input[type="number"]{
 
 
 span{
-    color: #111;
+    color: var(--color-title);
     font-weight: bold;
     font-size: 16px;
     line-height: 26px;
@@ -169,44 +173,58 @@ input[type="radio"]{
     margin: 10px 2px;
 }
 
-button[type="submit"].create-button{
-    width: 100%;
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-button[type="submit"],
-.button{
-    float: left;
-    display: block;
-    background-color: #5CACEE;
-    text-align: center;
-    width: 50%;
+.buttons button,
+a.button {
+    background-color: var(--color-button);
+    width: 180px;
     padding: 10px;
-    margin: 30px -5px 5px -15px;
     font-size: 15px;
     font-weight: bold;
-    color: #111;
+    color: var(--color-title);
     cursor: pointer;
     border-radius: 5px;
+    margin: 20px 0 4px 0;
+    transition: 400ms;
 }
 
-.button{
+.buttons a.button {
     width: 100%;
-    text-decoration: none;
-    box-sizing: border-box;
+    font-size: 18px;
+    margin-right: 10px;
+    text-align: center;
 }
 
-#form-delete button[type="submit"] {
-    margin-left: 10px;
+.buttons a.button:hover {
+    color: white;
+    background-color: var(--color-button-dark);;
+}
+
+.buttons .button-delete {
     background-color: lightcoral;
 }
 
+.buttons button.button-delete:hover {
+    background: #d12a2a;
+    color: white;
+}
+
+.buttons button.button:hover {
+    background-color: var(--color-button-dark);
+    color: white;
+
+}
 
 /* TABLE */
 
 .table-container{
     display: block;
     padding: 30px;
-    box-sizing: border-box;
 }
 
 .table-container table {
@@ -246,7 +264,7 @@ tbody tr td:first-child span {
 
 thead tr th{
     text-transform: uppercase;
-    color: #111;
+    color: var(--color-title);
     font-weight: bold;
     font-size: 15px;
     line-height: 25px;
@@ -266,12 +284,13 @@ table tbody tr:last-child td {
 table tbody tr td a,
 .button-register,
 .table-container .header button  {
-    background-color: #5CACEE;
+    background-color: var(--color-button);
     padding: 5px 25px;
-    color: #111;
+    color: var(--color-title);
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 14px;
+    transition: 400ms;
 } 
 
 a.button-register{
@@ -304,13 +323,16 @@ a.button-register:hover,
 .table-container .header a,
 .table-container .header button[type="submit"] {
     margin: 0;
-    width: 70px;
+    width: 120px;
     text-align: center;
 }
 
 .table-container .header button[type="submit"]{
-    padding: 5px 10px;
-    width: 107px;
+    padding: 8px 10px;
+    width: 115px;
+    font-weight: bold;
+    color: var(--color-title);
+    cursor: pointer;
 }
 
 
@@ -326,6 +348,7 @@ a.button-register:hover,
 .table-container .header input {
     border: 1px solid #777;
     border-radius: 4px;
+    padding-left: 10px
 }
 
 /* Pagination */
@@ -347,13 +370,14 @@ a.button-register:hover,
 
 .pagination a,
 .pagination span {
-    background-color: #5CACEE;    
+    background-color: var(--color-button);    
     margin-right: 14px;
     padding: 4px;
     font-weight: bold;
     border-radius: 16px;
     text-decoration: none;
-    color: #1C1C1C;
+    color: var(--color-link);
+    transition: 400ms;
 }
 
 .pagination a:hover {
