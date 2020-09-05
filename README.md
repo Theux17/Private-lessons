@@ -22,7 +22,6 @@ Projeto feito para aprender os conceitos ensinado durante o módulo 04 do Bootca
 - JavaScript
 - Node.js
 - Express.js
-- Nodemon
 - PostgreSQL
 ---
 ## Como baixar o projeto 
