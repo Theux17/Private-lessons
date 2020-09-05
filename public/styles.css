@@ -179,7 +179,7 @@ input[type="radio"]{
     align-items: center;
 }
 
-.buttons button,
+.buttons button, 
 a.button {
     background-color: var(--color-button);
     width: 180px;
@@ -200,7 +200,7 @@ a.button {
     text-align: center;
 }
 
-.buttons button.button:hover{
+.buttons button.button.create:hover{
     width: 100%;
     font-size: 18px;
     margin-right: 10px;
