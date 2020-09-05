@@ -200,6 +200,13 @@ a.button {
     text-align: center;
 }
 
+.buttons button.button:hover{
+    width: 100%;
+    font-size: 18px;
+    margin-right: 10px;
+    text-align: center;
+}
+
 .buttons a.button:hover {
     color: white;
     background-color: var(--color-button-dark);;
