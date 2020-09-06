@@ -31,6 +31,8 @@
 <div class="item">
     <div>Ano escolar</div>
     <select name="educational_level">
+        <option disabled hidden selected>Selecione o seu ano escolar atual</option>
+        
         <option value="5EF" {% if student.educational_level == "5° ano do ensino fundamental" %} selected {% endif %}>
             5° ano do ensino fundamental 
         </option>
@@ -71,6 +73,7 @@
 <div class="item">
     <div>Professor</div>
     <select name="teacher_id">
+        <option disabled hidden selected>Selecione um professor</option>
     {% for teacher in teacherOptions %}
         <option value="{{ teacher.id }}" {% if student.teacher_id == teacher.id %} selected {% endif %}>
            {{ teacher.name }} 

@@ -391,3 +391,30 @@ a.button-register:hover,
     color: white;
 
 }
+
+/* Messages */
+@keyframes up{
+    to {
+        opacity: 0;
+        transform: translateX(-10px)
+    }
+    from {
+        opacity: 0;
+        transform: translateX(10px)
+
+    }
+}
+
+.messages.error {
+    top: 10px;
+    right: 10px;
+    padding: 28px;
+    border-radius: 8px;
+    background: #d12a2a;
+    color: white;
+
+    transition: 400ms;
+
+    opacity: 1;
+    animation: up 400ms ease-in-out;
+}

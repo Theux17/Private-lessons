@@ -22,6 +22,12 @@
 <div class="item">
     <div>Grau de escolaridade</div>
     <select name="educational_level">
+        <option hidden selected disabled value="">Selecione o seu grau de escolaridade</option>
+   
+        {% if teacher.educational_level  %}
+            <option hidden selected disabled value="{{ teacher.educational_level }}" >{{ teacher.educational_level }}</option>
+        {% endif %}
+        
         <option name="medio" value="Ensino Médio Completo">Ensino Médio Completo</option>
         <option name="superior" value="Ensino Superior Completo">Ensino Superior Completo</option>
         <option name="doutorado" value="Doutorado">Doutorado</option>
