@@ -1,5 +1,5 @@
 const faker = require('faker')
-const { date, grade } = require('./src/lib/utils')
+const { date, grade, educationalLevel } = require('./src/lib/utils')
 
 const Student = require('./src/app/models/Student')
 const Teacher = require('./src/app/models/Teacher')
@@ -17,7 +17,7 @@ function dynamicArrayValues(array) {
     totalStudents = 5
 
     
-    async function createTeachers() {
+async function createTeachers() {
         let teachers = []
         
     while (teachers.length < totalTeachers) {
@@ -25,7 +25,7 @@ function dynamicArrayValues(array) {
             avatar_url: faker.image.image(),
             name: faker.name.firstName(),
             birth: date(faker.date.past(10, new Date(2010, 0, 1))).iso,
-            educational_level: dynamicArrayValues(teacherEducationalLevel),
+            educational_level: educationalLevel(dynamicArrayValues(teacherEducationalLevel)),
             class_location: dynamicArrayValues(classLocation),
             occupation_area: dynamicArrayValues(occupationArea),
             created_at: date(Date.now()).iso
@@ -34,7 +34,6 @@ function dynamicArrayValues(array) {
 
     const teachersPromise = teachers.map(teacher => Teacher.create(teacher))
     teachersIds = await Promise.all(teachersPromise)
-    console.log(teachers.length)
 }
 
 async function createStudent() {
@@ -54,8 +53,6 @@ async function createStudent() {
     }
     const studentsPromise = students.map(student => Student.create(student))
     studentsIds = await Promise.all(studentsPromise)
-    console.log(students.length)
-
 }
 
 async function init(){
