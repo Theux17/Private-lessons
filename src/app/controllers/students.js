@@ -58,8 +58,10 @@ module.exports = {
                 }
             }
 
-            const { avatar_url, name, birth, email,
+            let { avatar_url, name, birth, email,
                 educational_level, workload, teacher_id } = req.body
+
+            educational_level = grade(educational_level)
 
             const student_id = await Student.create({
                 avatar_url,
@@ -71,7 +73,7 @@ module.exports = {
                 teacher_id
             })
 
-            return res.redirect(`/students/show/${student_id}`)
+            return res.render('messages/success', { student_id })
 
         } catch (error) {
             console.error(error)
@@ -126,7 +128,7 @@ module.exports = {
                 teacher_id
             })
 
-            return res.redirect(`/students/show/${req.body.id}`)
+            return res.render('messages/success', { student_id: req.body.id })
         } catch (error) {
             console.error(error)
         }
@@ -137,7 +139,7 @@ module.exports = {
 
             await Student.delete(req.body.id)
 
-            return res.redirect("/students")
+            return res.render("messages/delete")
 
         } catch (error) {
             console.error(error)

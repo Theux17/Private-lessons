@@ -1,0 +1,34 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <div class="card-message">
+        <div class="lottie-animation"></div>
+        <h2>Operação realizada com sucesso!</h2>
+    </div>
+
+    <script src="/lottie.min.js"></script>
+    <script>
+        const element = document.querySelector('.lottie-animation')
+        lottie.loadAnimation({
+            container: element, // the dom element that will contain the animation
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '/20181-success-blue.json' // the path to the animation json
+        })
+
+        {% if student_id %}
+            setTimeout(() => {
+                location.href = `/students/show/{{ student_id }}`
+            }, 4000);
+        {% endif %}
+
+        {% if teacher_id %}
+            setTimeout(() => {
+                location.href = `/teachers/show/{{ teacher_id }}`
+            }, 4000);
+        {% endif %}
+    </script>
+
+{% endblock content %}
+

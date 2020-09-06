@@ -1,0 +1,25 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <div class="card-message">
+        <div class="lottie-animation"></div>
+        <h2>Deletado com sucesso com sucesso!</h2>
+    </div>
+
+    <script src="/lottie.min.js"></script>
+    <script>
+        const element = document.querySelector('.lottie-animation')
+        lottie.loadAnimation({
+            container: element, // the dom element that will contain the animation
+            renderer: 'svg',
+            loop: false,
+            autoplay: true,
+            path: '/4616-clear-buttondelete-button.json' // the path to the animation json
+        })
+
+        setTimeout(() => {
+            location.href = "/"
+        }, 4000);
+    </script>
+
+{% endblock content %}
