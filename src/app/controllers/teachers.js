@@ -68,8 +68,7 @@ module.exports = {
                 created_at
             })
 
-            return res.redirect(`/teachers/show/${teacher_id}`)
-
+            return res.render('messages/success', { teacher_id })
         } catch (error) {
             console.error(error)
         }
@@ -131,7 +130,7 @@ module.exports = {
                 occupation_area
             })
 
-            return res.redirect(`/teachers/show/${req.body.id}`)
+            return res.render("messages/success", { teacher_id: req.body.id })
 
         } catch (error) {
             console.error(error)
@@ -142,7 +141,7 @@ module.exports = {
         try {
 
             await Teacher.delete(req.body.id)
-            return res.redirect("/teachers")
+            return res.render('messages/delete')
 
         } catch (error) {
             console.error(error)

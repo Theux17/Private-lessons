@@ -391,3 +391,50 @@ a.button-register:hover,
     color: white;
 
 }
+
+/* Messages */
+@keyframes up{
+    to {
+        opacity: 0;
+        transform: translateX(-10px)
+    }
+    from {
+        opacity: 0;
+        transform: translateX(10px)
+
+    }
+}
+
+.messages.error {
+    top: 10px;
+    right: 10px;
+    padding: 28px;
+    border-radius: 8px;
+    background: #d12a2a;
+    color: white;
+
+    transition: 400ms;
+
+    opacity: 1;
+    animation: up 400ms ease-in-out;
+}
+
+/*Animações*/
+.card-message .lottie-animation {
+    width: 20%;
+
+}
+
+.card-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    max-width: 800px;
+    height: 300px;
+    margin: 40px auto;
+
+    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.7);
+
+    animation: up 700ms;
+}
